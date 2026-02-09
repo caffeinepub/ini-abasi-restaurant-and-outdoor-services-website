@@ -1,0 +1,87 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Admin-only Internet Identity UX with anonymous public ordering/reservations",
+  "requirements": [
+    {
+      "id": "REQ-20",
+      "summary": "Limit Internet Identity login/logout UI and profile setup prompts to /admin only (no auth UX on public routes).",
+      "acceptanceCriteria": [
+        "On public routes (e.g., /, /menu, /gallery, /about, /contact, /order-reserve, /page/$slug), there is no visible Login/Logout control.",
+        "The ProfileSetupModal does not appear for public visitors (including if they previously authenticated), unless they are actively accessing /admin.",
+        "/admin still prompts for Internet Identity login when not authenticated (via existing AdminGuard behavior)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/HeaderNav.tsx",
+          "operation": "modify",
+          "description": "Hide/remove the public header/mobile-menu LoginButton on non-admin routes; conditionally render the LoginButton only when the current route is under /admin. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/auth/ProfileSetupModal.tsx",
+          "operation": "modify",
+          "description": "Gate ProfileSetupModal visibility by route so it can only open while actively browsing /admin; additionally, prevent showing the modal for admins (e.g., by checking caller role/admin status via existing authorization hooks) to avoid prompting admin visitors to create user profiles. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/SiteLayout.tsx",
+          "operation": "modify",
+          "description": "Ensure SiteLayout wiring does not cause profile setup prompts on public pages (keep ProfileSetupModal mounted if desired, but rely on the modal’s new /admin-only gating logic so it never opens on public routes). Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-21",
+      "summary": "Allow anonymous (no Internet Identity) order and reservation submissions, capturing explicit customer contact details in the UI and sending them with the submission payload.",
+      "acceptanceCriteria": [
+        "On /order-reserve, users can submit an order or reservation without being logged in; no error message requires login.",
+        "Order/Reservation submissions include explicit customer contact fields (e.g., name and phone, plus optional email) captured in the UI and persisted in the backend.",
+        "Backend accepts anonymous callers for placing orders/reservations and does not trap due to principal mismatch or missing user permissions.",
+        "Admin Orders page continues to list all orders/reservations, including those submitted anonymously, and shows the captured customer contact details.",
+        "Any previous functionality that relied on identity for placing an order no longer blocks public submissions."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/OrderReservePage.tsx",
+          "operation": "modify",
+          "description": "Remove identity-required checks/disabled states for both order and reservation submissions; add explicit customer contact inputs (name, phone, optional email) for both tabs; include those values in the submitted data (e.g., by mapping into the order payload fields in a backend-compatible way and using an anonymous marker when no identity is present). Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/useOrders.ts",
+          "operation": "modify",
+          "description": "Ensure the place-order mutation flow works correctly when the actor is anonymous (no UI-side requirement for identity), and that cache invalidation still updates admin listings. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/admin/AdminOrdersPage.tsx",
+          "operation": "modify",
+          "description": "Display captured customer contact details for each order/reservation in the admin order details dialog (and/or table), including clearly indicating when an order was submitted anonymously. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-22",
+      "summary": "Keep all admin-only editing features protected and usable after moving authentication UX to /admin.",
+      "acceptanceCriteria": [
+        "All backend mutation methods that change site content remain protected by admin checks (AccessControl.isAdmin).",
+        "All admin routes under /admin remain protected by AdminGuard and are not accessible to non-admins.",
+        "Admin users who log in with Internet Identity can access and use all existing admin pages to create/update/delete the editable content already implemented."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Confirm /admin route tree remains wrapped by the existing AdminGuard so all nested admin pages stay inaccessible to non-admin users. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/auth/AdminGuard.tsx",
+          "operation": "modify",
+          "description": "Keep the existing authorization-driven guard behavior intact while ensuring the login prompt remains specific to /admin access attempts (no changes that would introduce auth prompts on public routes). Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/admin/AdminLayout.tsx",
+          "operation": "modify",
+          "description": "Add an admin-area LoginButton (for logout and status) within the admin UI chrome so admins can log out without relying on public header controls. Verify the component's usage instructions before implementing."
+        }
+      ]
+    }
+  ]
+}

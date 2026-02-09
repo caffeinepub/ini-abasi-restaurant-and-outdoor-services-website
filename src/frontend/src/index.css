@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.5rem;
+        
+        /* Warm green, beige, and red palette for Ini-Abasi Restaurant */
+        --background: 0.98 0.015 85;
+        --foreground: 0.25 0.02 85;
+        
+        --card: 1 0 0;
+        --card-foreground: 0.25 0.02 85;
+        
+        --popover: 1 0 0;
+        --popover-foreground: 0.25 0.02 85;
+        
+        /* Primary: Warm green */
+        --primary: 0.55 0.12 145;
+        --primary-foreground: 0.98 0.015 85;
+        
+        /* Secondary: Beige */
+        --secondary: 0.88 0.04 75;
+        --secondary-foreground: 0.25 0.02 85;
+        
+        /* Muted: Light beige */
+        --muted: 0.93 0.02 75;
+        --muted-foreground: 0.50 0.02 85;
+        
+        /* Accent: Red accent */
+        --accent: 0.58 0.18 25;
+        --accent-foreground: 0.98 0.015 85;
+        
+        --destructive: 0.55 0.22 25;
+        --destructive-foreground: 0.98 0.015 85;
+        
+        --border: 0.88 0.03 75;
+        --input: 0.88 0.03 75;
+        --ring: 0.55 0.12 145;
+        
+        --chart-1: 0.55 0.12 145;
+        --chart-2: 0.58 0.18 25;
+        --chart-3: 0.88 0.04 75;
+        --chart-4: 0.45 0.10 145;
+        --chart-5: 0.68 0.15 25;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Merriweather', Georgia, serif;
+        font-weight: 700;
+    }
+}
+
+@layer utilities {
+    .pattern-bg {
+        background-image: url('/assets/generated/iniabasi-pattern.dim_2048x2048.png');
+        background-size: 400px 400px;
+        background-repeat: repeat;
+        opacity: 0.03;
+    }
+}

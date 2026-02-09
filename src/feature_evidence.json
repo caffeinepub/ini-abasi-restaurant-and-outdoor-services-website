@@ -1,0 +1,68 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-restrict-internet-identity-authentication-ux-to-the-admin-area-only-remove-hide-the-login-logout-button-from-the-public-site-header-mobile-menu-and-prevent-the-public-site-from-prompting-non-admin-visitors-to-create-user-profiles",
+      "featureTitle": "Restrict Internet Identity authentication UX to the admin area only: remove/hide the Login/Logout button from the public site header/mobile menu and prevent the public site from prompting non-admin visitors to create user profiles.",
+      "files": [
+        "frontend/src/components/HeaderNav.tsx",
+        "frontend/src/components/auth/ProfileSetupModal.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-20"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-order-reserve-flow-to-work-without-internet-identity-login-anonymous-submissions-allow-visitors-to-place-an-order-request-or-a-table-reservation-request-without-authenticating-while-still-storing-enough-contact-details-for-fulfillment",
+      "featureTitle": "Update Order/Reserve flow to work without Internet Identity login (anonymous submissions): allow visitors to place an order request or a table reservation request without authenticating, while still storing enough contact details for fulfillment.",
+      "files": [
+        "frontend/src/hooks/useOrders.ts",
+        "frontend/src/pages/OrderReservePage.tsx",
+        "frontend/src/pages/admin/AdminOrdersPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-21"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-keep-admin-editing-access-comprehensive-ensure-all-content-editing-capabilities-menu-gallery-contact-info-seo-testimonials-promotions-pages-orders-status-changes-export-and-admin-management-remain-admin-only-and-accessible-after-internet-identity-is-limited-to-admin",
+      "featureTitle": "Keep admin editing access comprehensive: ensure all content-editing capabilities (menu, gallery, contact info, SEO, testimonials, promotions, pages, orders status changes, export, and admin management) remain admin-only and accessible after Internet Identity is limited to /admin.",
+      "files": [
+        "frontend/src/pages/admin/AdminLayout.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-22"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

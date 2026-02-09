@@ -1,0 +1,21 @@
+{
+  "frontend/src/pages/admin/AdminGalleryPage.tsx": "Admin page for managing gallery images with upload functionality using ExternalBlob and category organization.",
+  "frontend/src/pages/admin/AdminContactPage.tsx": "Admin page for editing contact information including address, phone, WhatsApp, email, hours, and Google Maps embed URL.",
+  "frontend/src/pages/admin/AdminSeoPage.tsx": "Admin page for managing SEO metadata (title, description, keywords) for all main pages with tabbed interface.",
+  "frontend/src/pages/admin/AdminTestimonialsPage.tsx": "Admin page for adding and removing customer testimonials with author name, content, and star rating.",
+  "frontend/src/pages/admin/AdminPromotionsPage.tsx": "Admin page for creating time-bound promotions with images, descriptions, and optional links using ExternalBlob.",
+  "frontend/src/pages/admin/AdminOrdersPage.tsx": "Admin page for viewing and managing orders/reservations with customer contact information display, anonymous order indicators, and status updates.",
+  "frontend/src/pages/admin/AdminAdminsPage.tsx": "Admin management page with enhanced error reporting, owner privilege checks, helpful instructions, and detailed feedback for role assignment operations.",
+  "frontend/src/pages/admin/AdminExportPage.tsx": "Admin page providing data export functionality to download complete website backup as JSON file.",
+  "frontend/src/pages/admin/AdminPagesPage.tsx": "Admin page for creating and managing custom pages with content, slugs, and SEO metadata.",
+  "frontend/src/components/HeaderNav.tsx": "Main navigation header with responsive menu, logo, and main links; LoginButton removed from public header (auth UI only in admin area).",
+  "frontend/src/pages/GalleryPage.tsx": "Public gallery page displaying categorized images with lightbox view and scroll animations, fixed ref callback type issue.",
+  "frontend/src/main.tsx": "Application entry point that sets up React Query, Internet Identity provider, and renders the root App component with correct CSS import path from src directory.",
+  "frontend/src/hooks/useActor.ts": "Initializes the backend actor with proper identity handling, removed non-existent initialization method call, and added error state tracking for better error handling.",
+  "frontend/src/hooks/useAuthz.ts": "Authorization hooks with improved error handling for admin checks, role queries, and profile management; gracefully handles backend traps and network errors by returning safe defaults instead of throwing.",
+  "frontend/src/components/auth/AdminGuard.tsx": "Admin route guard component that handles authentication, authorization, loading, and error states with clear English messaging and actionable UI for each scenario.",
+  "frontend/src/components/auth/ProfileSetupModal.tsx": "Profile setup modal that only appears on /admin routes for authenticated non-admin users who don't have a profile yet.",
+  "frontend/src/pages/OrderReservePage.tsx": "Public order and reservation page with anonymous submission support; captures customer contact details (name, phone, email) for both orders and reservations without requiring login.",
+  "frontend/src/pages/admin/AdminLayout.tsx": "Admin dashboard layout with sidebar navigation and LoginButton in the admin header for logout functionality.",
+  "frontend/src/hooks/useOrders.ts": "React Query hooks for order operations including anonymous order placement with proper cache invalidation; removed non-existent getMyOrders method."
+}

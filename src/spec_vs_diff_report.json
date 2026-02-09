@@ -1,0 +1,49 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-09T11:11:18.509Z",
+  "summary": "Diff implements admin-only auth UX (LoginButton removed from public header; ProfileSetupModal gated to /admin) and adds anonymous order/reservation UI plus an order-state migration. However, the persisted customer contact data appears to be shoehorned into existing ContactInfo fields (e.g., storing customer name in `hours`) rather than adding explicit customer contact fields in the backend model as requested.",
+  "missing_requirements": [
+    {
+      "id": "REQ-21",
+      "requirement": "Order/Reservation submissions include explicit customer contact fields (e.g., name and phone, plus optional email) captured in the UI and persisted in the backend.",
+      "reason": "While the UI captures name/phone/email, the backend-side persistence model shown uses `ContactInfo` (address/phone/whatsapp/email/hours/mapUrl) and the admin UI comments indicate customer name is stored in `contactInfo.hours`, which is not an explicit customer name field as required.",
+      "evidence": [
+        "frontend/src/pages/OrderReservePage.tsx",
+        "frontend/src/pages/admin/AdminOrdersPage.tsx",
+        "backend/migration.mo"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Repurposing `ContactInfo` fields to store per-order customer identity (e.g., storing customer name in `contactInfo.hours` and other order contact details in unrelated fields).",
+      "reason": "The request asks for explicit customer contact fields for orders/reservations; the diff instead reuses the site-wide `ContactInfo` shape and maps customer name into a field documented as hours, which is an unrequested workaround and introduces confusing semantics.",
+      "evidence": [
+        "frontend/src/pages/admin/AdminOrdersPage.tsx",
+        "frontend/src/pages/OrderReservePage.tsx",
+        "backend/migration.mo"
+      ]
+    },
+    {
+      "description": "Changing `customerPrincipal` in stored orders from `Principal` to `Text` via migration.",
+      "reason": "The BuildRequest requires supporting anonymous submissions; it does not require changing the stored principal type to Text (anonymous could be supported while keeping a `Principal` and/or adding optional contact fields).",
+      "evidence": [
+        "backend/migration.mo"
+      ]
+    }
+  ],
+  "confidence": 0.66,
+  "changed_files": [
+    "backend/main.mo",
+    "backend/migration.mo",
+    "frontend-file-summaries.txt",
+    "frontend/src/components/HeaderNav.tsx",
+    "frontend/src/components/auth/ProfileSetupModal.tsx",
+    "frontend/src/hooks/useOrders.ts",
+    "frontend/src/pages/OrderReservePage.tsx",
+    "frontend/src/pages/admin/AdminLayout.tsx",
+    "frontend/src/pages/admin/AdminOrdersPage.tsx",
+    "project_state.json"
+  ]
+}

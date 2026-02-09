@@ -1,0 +1,94 @@
+{
+  "kind": "build_request",
+  "title": "Make Internet Identity login admin-only and keep public ordering/reservations usable without login",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-20",
+      "text": "Restrict Internet Identity authentication UX to the admin area only: remove/hide the Login/Logout button from the public site header/mobile menu and prevent the public site from prompting non-admin visitors to create user profiles.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "Only admin needs to login with id.ai and should have access to edit all that I said"
+        ]
+      },
+      "acceptanceCriteria": [
+        "On public routes (e.g., /, /menu, /gallery, /about, /contact, /order-reserve, /page/$slug), there is no visible Login/Logout control.",
+        "The ProfileSetupModal does not appear for public visitors (including if they previously authenticated), unless they are actively accessing /admin.",
+        "/admin still prompts for Internet Identity login when not authenticated (via existing AdminGuard behavior)."
+      ]
+    },
+    {
+      "id": "REQ-21",
+      "text": "Update Order/Reserve flow to work without Internet Identity login (anonymous submissions): allow visitors to place an order request or a table reservation request without authenticating, while still storing enough contact details for fulfillment.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "Only admin needs to login with id.ai and should have access to edit all that I said"
+        ]
+      },
+      "acceptanceCriteria": [
+        "On /order-reserve, users can submit an order or reservation without being logged in; no error message requires login.",
+        "Order/Reservation submissions include explicit customer contact fields (e.g., name and phone, plus optional email) captured in the UI and persisted in the backend.",
+        "Backend accepts anonymous callers for placing orders/reservations and does not trap due to principal mismatch or missing user permissions.",
+        "Admin Orders page continues to list all orders/reservations, including those submitted anonymously, and shows the captured customer contact details.",
+        "Any previous functionality that relied on identity for placing an order no longer blocks public submissions."
+      ]
+    },
+    {
+      "id": "REQ-22",
+      "text": "Keep admin editing access comprehensive: ensure all content-editing capabilities (menu, gallery, contact info, SEO, testimonials, promotions, pages, orders status changes, export, and admin management) remain admin-only and accessible after Internet Identity is limited to /admin.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "Only admin needs to login with id.ai and should have access to edit all that I said"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All backend mutation methods that change site content remain protected by admin checks (AccessControl.isAdmin).",
+        "All admin routes under /admin remain protected by AdminGuard and are not accessible to non-admins.",
+        "Admin users who log in with Internet Identity can access and use all existing admin pages to create/update/delete the editable content already implemented."
+      ]
+    },
+    {
+      "id": "REQ-23",
+      "text": "Add a conditional state migration for any backend data model changes required to support anonymous orders/reservations, preserving existing stored orders across upgrade.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "Only admin needs to login with id.ai and should have access to edit all that I said"
+        ]
+      },
+      "acceptanceCriteria": [
+        "If the Order type/state structure changes, backend/migration.mo is created/updated per the project migration policy to safely upgrade existing state.",
+        "After upgrade, existing orders (created before this change) are still visible in the admin orders UI and export output, with reasonable defaults for any newly added fields."
+      ]
+    }
+  ],
+  "constraints": [
+    "Backend must remain a single Motoko actor with logic in backend/main.mo; add backend/migration.mo only if needed for state upgrades.",
+    "Do not edit frontend immutable paths: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, and frontend/src/components/ui/*.",
+    "Use English for all user-facing text."
+  ],
+  "nonGoals": [
+    "Adding third-party authentication providers (only Internet Identity is supported).",
+    "Adding real-time updates (WebSockets/push notifications).",
+    "Adding external databases or non-Internet-Computer backend services."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

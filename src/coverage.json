@@ -1,0 +1,86 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-09T11:11:18.513Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 4,
+    "implemented": 3,
+    "items": [
+      {
+        "id": "REQ-20",
+        "summary": "Restrict Internet Identity authentication UX to the admin area only: remove/hide the Login/Logout button from the public site header/mobile menu and prevent the public site from prompting non-admin visitors to create user profiles.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/HeaderNav.tsx",
+          "frontend/src/components/auth/ProfileSetupModal.tsx",
+          "frontend/src/components/SiteLayout.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/HeaderNav.tsx",
+          "frontend/src/components/auth/ProfileSetupModal.tsx"
+        ]
+      },
+      {
+        "id": "REQ-21",
+        "summary": "Update Order/Reserve flow to work without Internet Identity login (anonymous submissions): allow visitors to place an order request or a table reservation request without authenticating, while still storing enough contact details for fulfillment.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/OrderReservePage.tsx",
+          "frontend/src/hooks/useOrders.ts",
+          "frontend/src/pages/admin/AdminOrdersPage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/OrderReservePage.tsx",
+          "frontend/src/hooks/useOrders.ts",
+          "frontend/src/pages/admin/AdminOrdersPage.tsx"
+        ]
+      },
+      {
+        "id": "REQ-22",
+        "summary": "Keep admin editing access comprehensive: ensure all content-editing capabilities (menu, gallery, contact info, SEO, testimonials, promotions, pages, orders status changes, export, and admin management) remain admin-only and accessible after Internet Identity is limited to /admin.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/App.tsx",
+          "frontend/src/components/auth/AdminGuard.tsx",
+          "frontend/src/pages/admin/AdminLayout.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/admin/AdminLayout.tsx"
+        ]
+      },
+      {
+        "id": "REQ-23",
+        "summary": "Add a conditional state migration for any backend data model changes required to support anonymous orders/reservations, preserving existing stored orders across upgrade.",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      }
+    ]
+  },
+  "changedFiles": [
+    "backend/main.mo",
+    "backend/migration.mo",
+    "build-request.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/src/backend.d.ts",
+    "frontend/src/backend.ts",
+    "frontend/src/components/HeaderNav.tsx",
+    "frontend/src/components/auth/ProfileSetupModal.tsx",
+    "frontend/src/declarations/backend.did.d.ts",
+    "frontend/src/declarations/backend.did.js",
+    "frontend/src/hooks/useOrders.ts",
+    "frontend/src/pages/OrderReservePage.tsx",
+    "frontend/src/pages/admin/AdminLayout.tsx",
+    "frontend/src/pages/admin/AdminOrdersPage.tsx",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

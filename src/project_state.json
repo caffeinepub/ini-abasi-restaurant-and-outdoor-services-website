@@ -1,0 +1,250 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 7,
+  "summary": "Build a modern, mobile-first, SEO-optimized website for Ini‑Abasi Restaurant and Outdoor Services (women-owned African & continental cuisine restaurant in Maje, Suleja) with culturally accented branding, key marketing pages, online order/reservation, local SEO, and mandatory owner-controlled admin with no vendor lock-in.",
+  "architectural_notes": [
+    "Mobile-first, SEO-optimized marketing website for a local restaurant with an owner-controlled admin (no vendor lock-in).",
+    "Design direction: cultural/traditional cuisine aesthetic; warm green/beige with red accents; serif headings + sans-serif body; no dark mode; light scroll animations.",
+    "Key integrations: Google Maps (location + hours), WhatsApp/call/order buttons; structured data for menu and events.",
+    "Do not change current public design/content; only fix/restore admin functionality and ensure full owner/super-admin permissions via Internet Identity (no vendor lock-in, owner cannot be locked out).",
+    "Authentication requirement: only admins should log in via Internet Identity (id.ai); admin users must have full edit access to all owner-specified editable site content/settings."
+  ],
+  "known_issues": [
+    "Admin area at /admin is not functional / owner cannot access required admin controls (permissions/auth issue)."
+  ],
+  "isFixRequest": true,
+  "existing_features": [
+    {
+      "id": "feature-create-a-cohesive-modern-cultural-traditional-visual-theme-for-ini-abasi-restaurant-and-outdoor-services-and-apply-it-consistently-across-all-pages-warm-green-beige-dominant-palette-with-red-accents-secondary-white-pink-accents-friendly-serif-typography-for-headings-and-clean-sans-serif-for-body-balanced-minimal-ui-with-cultural-accents-mobile-first-layout",
+      "title": "Create a cohesive, modern cultural/traditional visual theme for Ini‑Abasi Restaurant and Outdoor Services and apply it consistently across all pages: warm green + beige dominant palette with red accents; secondary white + pink accents; friendly serif typography for headings and clean sans‑serif for body; balanced minimal UI with cultural accents; mobile‑first layout.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-top-level-site-routing-and-navigation-with-a-clear-top-menu-bar-linking-to-home-menu-gallery-about-contact-order-reserve-ensure-the-ux-provides-fast-access-to-menu-order-reserve-and-contact-from-every-page-e-g-persistent-cta-buttons-links-in-header-footer",
+      "title": "Implement top-level site routing and navigation with a clear top menu bar linking to: Home, Menu, Gallery, About, Contact, Order/Reserve. Ensure the UX provides fast access to Menu, Order/Reserve, and Contact from every page (e.g., persistent CTA buttons/links in header/footer).",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-home-page-with-hero-section-emphasizing-african-continental-cuisine-food-photography-strong-ctas-for-reservations-and-orders-highlights-for-authentic-cuisine-pastries-natural-drinks-and-event-catering-outdoor-services-and-a-section-emphasizing-hygiene-and-food-quality",
+      "title": "Build the Home page with: hero section emphasizing African & continental cuisine (food photography), strong CTAs for reservations and orders, highlights for authentic cuisine, pastries, natural drinks, and event catering/outdoor services, and a section emphasizing hygiene and food quality.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-an-editable-menu-system-with-categories-items-descriptions-prices-and-daily-specials-menu-content-must-be-managed-by-the-owner-via-the-admin-interface-and-rendered-on-the-public-menu-page-with-mobile-first-filtering-browsing",
+      "title": "Implement an editable Menu system with categories, items, descriptions, prices, and daily specials. Menu content must be managed by the owner via the admin interface and rendered on the public Menu page with mobile-first filtering/browsing.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-gallery-page-that-displays-editable-photo-galleries-for-food-photography-events-pastries-and-natural-drinks-with-light-scroll-animations-gallery-assets-entries-must-be-manageable-in-the-admin-interface-add-remove-reorder-captions",
+      "title": "Create a Gallery page that displays editable photo galleries for food photography, events, pastries, and natural drinks, with light scroll animations. Gallery assets/entries must be manageable in the admin interface (add/remove/reorder, captions).",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-about-page-to-present-the-restaurant-s-heritage-women-owned-identity-community-focused-values-and-hygiene-food-quality-emphasis-in-clear-english-copy-and-culturally-aligned-layout",
+      "title": "Build the About page to present the restaurant’s heritage, women-owned identity, community-focused values, and hygiene/food quality emphasis in clear English copy and culturally aligned layout.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-contact-page-with-address-beside-suleja-nnpc-depot-main-gate-maje-suleja-clickable-phone-and-whatsapp-contact-actions-email-contact-and-an-embedded-google-maps-integration-opening-hours-and-location-details-must-be-editable-from-the-admin-interface",
+      "title": "Build the Contact page with: address (beside Suleja NNPC Depot Main Gate, Maje, Suleja), clickable phone and WhatsApp contact actions, email contact, and an embedded Google Maps integration. Opening hours and location details must be editable from the admin interface.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-an-order-reserve-page-that-supports-1-online-ordering-requests-cart-like-selection-from-menu-is-acceptable-2-delivery-request-details-and-3-table-booking-requests-submissions-must-be-persisted-in-the-backend-and-viewable-manageable-from-the-admin-interface",
+      "title": "Implement an Order/Reserve page that supports: (1) online ordering requests (cart-like selection from menu is acceptable), (2) delivery request details, and (3) table booking requests. Submissions must be persisted in the backend and viewable/manageable from the admin interface.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-seo-and-local-search-controls-editable-meta-title-description-keywords-per-page-and-implement-seo-friendly-defaults-for-all-required-pages-include-structured-data-json-ld-for-localbusiness-restaurant-menu-menu-items-and-events-promotions-when-present",
+      "title": "Add SEO and local search controls: editable meta title/description/keywords per page, and implement SEO-friendly defaults for all required pages. Include structured data (JSON-LD) for LocalBusiness/Restaurant, menu/menu items, and events/promotions when present.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-testimonials-reviews-capability-allow-the-admin-to-create-edit-reorder-testimonials-and-display-them-prominently-e-g-home-page-and-or-a-dedicated-section-to-build-trust-for-local-families-and-event-clients",
+      "title": "Add Testimonials/Reviews capability: allow the admin to create/edit/reorder testimonials and display them prominently (e.g., Home page and/or a dedicated section) to build trust for local families and event clients.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-promotions-and-banners-management-admin-can-create-time-bound-or-manual-promotions-banners-text-optional-image-link-target-such-as-menu-or-order-reserve-and-control-where-they-appear-e-g-home-hero-banner-site-wide-announcement-bar",
+      "title": "Implement Promotions and Banners management: admin can create time-bound or manual promotions/banners (text + optional image + link target such as Menu or Order/Reserve) and control where they appear (e.g., Home hero banner, site-wide announcement bar).",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-provide-mandatory-super-admin-owner-access-with-no-vendor-lock-in-using-internet-identity-the-owner-must-never-be-locked-out-include-an-owner-principal-allowlist-an-in-app-admin-area-and-a-safe-mechanism-for-the-owner-to-add-remove-additional-admins",
+      "title": "Provide mandatory super-admin/owner access with no vendor lock-in using Internet Identity. The owner must never be locked out: include an owner-principal allowlist, an in-app admin area, and a safe mechanism for the owner to add/remove additional admins.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-data-export-backup-so-the-owner-can-export-all-website-content-and-settings-menu-pages-gallery-metadata-hours-location-seo-settings-testimonials-promotions-orders-reservations-in-a-portable-format-e-g-json-download-directly-from-the-admin-interface",
+      "title": "Implement data export/backup so the owner can export all website content and settings (menu, pages, gallery metadata, hours/location, SEO settings, testimonials, promotions, orders/reservations) in a portable format (e.g., JSON download) directly from the admin interface.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-admin-managed-pages-capability-to-add-remove-custom-pages-beyond-the-required-ones-each-page-must-support-a-title-slug-basic-content-blocks-e-g-rich-text-sections-and-seo-metadata-added-pages-must-appear-in-navigation-based-on-admin-configuration",
+      "title": "Implement admin-managed Pages capability to add/remove custom pages beyond the required ones. Each page must support a title, slug, basic content blocks (e.g., rich text/sections), and SEO metadata; added pages must appear in navigation based on admin configuration.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-static-asset-support-for-generated-brand-visuals-from-image-requirements-by-placing-them-in-frontend-public-assets-generated-and-using-them-on-the-appropriate-pages-e-g-hero-section-headers-subtle-cultural-pattern-backgrounds",
+      "title": "Add static asset support for generated brand visuals (from image requirements) by placing them in frontend/public/assets/generated and using them on the appropriate pages (e.g., hero, section headers, subtle cultural pattern backgrounds).",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-admin-frontend-access-flow-to-provide-a-working-clear-admin-experience-once-authorization-is-fixed-including-actionable-error-messaging-when-admin-checks-fail-or-when-the-owner-is-not-yet-configured-without-changing-the-existing-site-design",
+      "title": "Update the /admin frontend access flow to provide a working, clear admin experience once authorization is fixed, including actionable error messaging when admin checks fail or when the owner is not yet configured (without changing the existing site design).",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-restrict-internet-identity-authentication-ux-to-the-admin-area-only-remove-hide-the-login-logout-button-from-the-public-site-header-mobile-menu-and-prevent-the-public-site-from-prompting-non-admin-visitors-to-create-user-profiles",
+      "title": "Restrict Internet Identity authentication UX to the admin area only: remove/hide the Login/Logout button from the public site header/mobile menu and prevent the public site from prompting non-admin visitors to create user profiles.",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-order-reserve-flow-to-work-without-internet-identity-login-anonymous-submissions-allow-visitors-to-place-an-order-request-or-a-table-reservation-request-without-authenticating-while-still-storing-enough-contact-details-for-fulfillment",
+      "title": "Update Order/Reserve flow to work without Internet Identity login (anonymous submissions): allow visitors to place an order request or a table reservation request without authenticating, while still storing enough contact details for fulfillment.",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-keep-admin-editing-access-comprehensive-ensure-all-content-editing-capabilities-menu-gallery-contact-info-seo-testimonials-promotions-pages-orders-status-changes-export-and-admin-management-remain-admin-only-and-accessible-after-internet-identity-is-limited-to-admin",
+      "title": "Keep admin editing access comprehensive: ensure all content-editing capabilities (menu, gallery, contact info, SEO, testimonials, promotions, pages, orders status changes, export, and admin management) remain admin-only and accessible after Internet Identity is limited to /admin.",
+      "reqIds": [
+        "REQ-22"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create core website pages: Home, Menu, Gallery, About, Contact, Order/Reserve with clear top navigation and mobile-first layout",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Menu system with editable categories, items, prices, and daily specials (owner/admin managed)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Order/Reserve functionality for online ordering, delivery requests, and table booking with prominent CTAs",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Gallery management with light scroll animations for food, events, pastries, and natural drinks photography",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Local SEO features: editable meta titles/descriptions/keywords, Google Maps + hours, testimonials/reviews, and structured data for menu/events",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Admin/super-admin access with full owner control: edit content/pages, hours/location, WhatsApp/call/order buttons, promotions/banners, and backup/export with no vendor lock-in",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Visual branding implementation: warm green/beige palette with red accents, secondary white/pink, friendly serif headings + clean sans-serif body, cultural/community-focused look",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Fix backend authorization so the restaurant owner can always access /admin as SUPER-ADMIN/OWNER (no vendor lock-in) and can never be locked out, while keeping the existing site design and content unchanged.",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Ensure the backend exposes and correctly implements the admin/role APIs expected by the frontend admin guard and admin management UI (e.g., isCallerAdmin, getCallerUserRole, and assignCallerUserRole), so /admin no longer appears 'not functional' due to missing or trapping methods.",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Fix authenticated user permission handling so that normal signed-in users can perform user-level actions without hitting authorization traps (e.g., profile save/load and 'my orders' queries), while keeping admin-only actions restricted to admins/owner.",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-14",
+      "summary": "Add a conditional state migration for any backend data model changes required to support anonymous orders/reservations, preserving existing stored orders across upgrade.",
+      "reqIds": [
+        "REQ-23"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Ini‑Abasi Restaurant and Outdoor Services Website",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}
